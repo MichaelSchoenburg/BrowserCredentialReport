@@ -88,6 +88,8 @@ function Write-ConsoleLog {
     $VerbosePreference = $VerbosePreferenceBefore
 }
 
+# I've put the big Base64 strings each into a function so they can be collapsed in Visual Studio Code and don't disturb.
+
 function Set-WebBrowserPassViewExe {
     $Base64WebBrowserPassView = # Paste Base64 string from the other script here
     $ContentWebBrowserPassView = [System.Convert]::FromBase64String($Base64WebBrowserPassView)
