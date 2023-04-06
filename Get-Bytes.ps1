@@ -1,4 +1,4 @@
-# Download the tools from here: https://www.nirsoft.net/password_recovery_tools.html ("1. Click this download link.")
+# Download the tools from here (search for "1. Click this download link."): https://www.nirsoft.net/password_recovery_tools.html
 
 $Path = "$($env:USERPROFILE)\Downloads" # Paste Path to the downloaded tools here. Both tools should be in the same folder.
 
