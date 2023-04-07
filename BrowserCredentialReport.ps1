@@ -90,13 +90,13 @@ function Write-ConsoleLog {
 function Set-WebBrowserPassViewExe {
     $Base64WebBrowserPassView = # Paste Base64 string from the other script here
     $ContentWebBrowserPassView = [System.Convert]::FromBase64String($Base64WebBrowserPassView)
-    Set-Content -Path "$($ToolPath)\WebBrowserPassView.exe" -Value $ContentWebBrowserPassView -Encoding Byte
+    Set-Content -Path "$($ToolPath)\WebBrowserPassView.exe" -Value $ContentWebBrowserPassView -Encoding Byte # Byte encoding exists in PS5 only
 }
 
 function Set-PasswordFoxExe {
     $Base64PasswordFox = # Paste Base64 string from the other script here
     $ContentPasswordFox = [System.Convert]::FromBase64String($Base64PasswordFox)
-    Set-Content -Path "$($ToolPath)\PasswordFox.exe" -Value $ContentPasswordFox -Encoding Byte
+    Set-Content -Path "$($ToolPath)\PasswordFox.exe" -Value $ContentPasswordFox -Encoding Byte # Byte encoding exists in PS5 only
 }
 
 #endregion FUNCTIONS
