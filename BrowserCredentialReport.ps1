@@ -106,7 +106,7 @@ function Set-PasswordFoxExe {
 #>
 
 Log "Checking if the Base64 string of the Nir Soft tools has been inserted into the script..."
-if ((-not ($Base64WebBrowserPassView)) or (-not ($Base64WebBrowserPassView))) {
+if ((-not ($Base64WebBrowserPassView)) -or (-not ($Base64WebBrowserPassView))) {
     Log "Nope, it has not. Please read the GitHub readme for instructions."
     Exit 1
 }
