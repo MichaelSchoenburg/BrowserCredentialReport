@@ -105,6 +105,12 @@ function Set-PasswordFoxExe {
     Script entry point
 #>
 
+Log "Checking if the Base64 string of the Nir Soft tools has been inserted into the script..."
+if ((-not ($Base64WebBrowserPassView)) or (-not ($Base64WebBrowserPassView))) {
+    Log "Nope, it has not. Please read the GitHub readme for instructions."
+    Exit 1
+}
+
 Log "Checking if path already exists..."
 if (-not (Test-Path -Path $ToolPath)) {
     Log "Creating path..."
@@ -215,5 +221,15 @@ $CSV | Select-Object -Property $Properties -Unique | Sort-Object -Property Domai
 Log "Cleaning up..."
 Start-Sleep -Seconds 3
 Get-ChildItem -Path $ToolPath | Remove-Item -Force -Confirm:$false
+
+<# 
+    Exit codes for RMM
+#>
+
+if ($CSV.Count -eq 0) {
+    Exit 0
+} else {
+    Exit 2
+}
 
 #endregion EXECUTION
