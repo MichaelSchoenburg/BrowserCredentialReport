@@ -130,8 +130,8 @@ Set-PasswordFoxExe
 Log "Exporting credentials from browsers..."
 foreach ($u in $UserFolders) {
     # Chrome
+    $ChromePath = "C:\Users\$($u.Name)\AppData\Local\Google\Chrome\User Data\Default"
     if (Test-Path -Path $ChromePath) {
-        $ChromePath = "C:\Users\$($u.Name)\AppData\Local\Google\Chrome\User Data\Default"
         Log "Processing Chrome for $($u.Name) at $ChromePath"
         & "$($ToolPath)\WebBrowserPassView.exe" /LoadPasswordsIE 0 /LoadPasswordsChrome 1 /UseChromeProfileFolder 1 /ChromeProfileFolder $ChromePath /LoadPasswordsFirefox 0 /scomma "C:\TSD.CenterVision\Software\Passworttools\$u-chrome.csv"
     } else {
@@ -148,8 +148,8 @@ foreach ($u in $UserFolders) {
     }
 
     # Firefox
+    $FirefoxPath = "C:\Users\$($u.Name)\AppData\Roaming\Mozilla\Firefox\Profiles"
     if (Test-Path -Path $FirefoxPath) {
-        $FirefoxPath = "C:\Users\$($u.Name)\AppData\Roaming\Mozilla\Firefox\Profiles"
         $FirefoxExactPath = (Get-ChildItem -Path $FirefoxPath).Where({$_ -like "*default-release"}).FullName
         Log "Processing Firefox for $($u.Name) at $FirefoxExactPath"
         & "$($ToolPath)\PasswordFox.exe" /Profile $FirefoxExactPath /scomma "C:\TSD.CenterVision\Software\Passworttools\$u-firefox.csv"
